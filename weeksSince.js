@@ -8,10 +8,10 @@ const firstDate = new Date(2023, 7, 21, 12)
 // returns difference in weeks between two dates. 
 function diff_weeks(dt2, dt1) 
  {
-  var diff =(dt2.getTime() - dt1.getTime());
+  var diff = Math.round(dt2.getTime() - dt1.getTime());
   // Divide by millisecconds, seconds, minutes, hours, days in week. 
   diff /= (1000 * 60 * 60 * 24 * 7);
-  return Math.abs(diff);
+  return Math.floor(Math.abs(diff));
   
  }
 
