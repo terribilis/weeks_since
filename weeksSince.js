@@ -2,30 +2,16 @@
 const widget = new ListWidget();
 const now = new Date();
 
-const firstDate = new Date(2023, 6, 21)
 
-const until = new Date(now);
-until.setDate(now.getDate() + 7)
-const dif = until - now
-console.log(dif)
-const cal = await Calendar.forEventsByTitle("Calendar");
-const events = await CalendarEvent.between(now, until,[cal]);// 
-// console.log(events)// 
-// const event = events[0];
-// console.log(event)
-// if (event.title== "BLUE") {
-//   widget.backgroundColor = Color.blue();
-// } else {
-//   widget.backgroundColor = Color.gray();
-// }
-// 
+const firstDate = new Date(2023, 7, 21, 12)
 
+// returns difference in weeks between two dates. 
 function diff_weeks(dt2, dt1) 
  {
-
-  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
-  diff /= (60 * 60 * 24 * 7);
-  return Math.abs(Math.round(diff));
+  var diff =(dt2.getTime() - dt1.getTime());
+  // Divide by millisecconds, seconds, minutes, hours, days in week. 
+  diff /= (1000 * 60 * 60 * 24 * 7);
+  return Math.abs(diff);
   
  }
 
@@ -33,7 +19,6 @@ const weeksSince = diff_weeks(firstDate, now)
 
 const stack = widget.addStack();
 stack.layoutHorizontally();
-// 
 const df = new DateFormatter();
 df.useShortDateStyle();
 // 
